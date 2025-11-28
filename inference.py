@@ -47,7 +47,7 @@ def main():
             full_response = output.outputs[0].text
             
             # check if output prompt is too short or doesn't contain an actual answer.
-            while (len(full_response) < 5 or !full_response.contains("\\\\boxed")):
+            while (len(full_response) < 5 or "\\\\boxed" not in full_response):
                 out = llm.generate(prompt, sampling_params)
                 full_response = out.outputs[0].text
             
